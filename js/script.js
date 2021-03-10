@@ -28,7 +28,7 @@ class Todo {
         li.classList.add('todo-item');
         li.key = item.key;
         li.insertAdjacentHTML('beforeend', `
-        <span class="text-todo"${todo.value}</span>
+        <span class="text-todo">${item.value}</span>
 				<div class="todo-buttons">
 					<button class="todo-remove"></button>
 					<button class="todo-complete"></button>
@@ -63,8 +63,8 @@ class Todo {
     }
     deleteItem(target) {
         [...this.todoData].forEach((item) => {
-            item.forEach((eiem, i) => {
-                if (target.key === Element.key) {
+            item.forEach((elem, i) => {
+                if (target.key === elem.key) {
                     this.todoData.delete(item[i].key);
                 }
             });
@@ -76,7 +76,7 @@ class Todo {
     completedItem() {
         [...this.todoData].forEach((item) => {
             item.forEach((elem) => {
-                if (this.target.key === elem.key) {
+                if (target.key === elem.key) {
                     elem.completed = !elem.completed;
                 }
             });
@@ -108,9 +108,10 @@ class Todo {
     init() {
         this.form.addEventListener('submit', this.addTodo.bind(this));
         this.render();
+        todo.handler();
     }
 
 }
-const todo = new Todo('.todo-control', '.header-input', '.todo-list', 'todo-completed');
+const todo = new Todo('.todo-control', '.header-input', '.todo-list', '.todo-completed');
 todo.init();
-todo.handler();
+
